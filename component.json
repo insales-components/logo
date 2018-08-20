@@ -1,0 +1,13 @@
+{
+  "name": "logo",
+  "version": "1.0.0",
+  "description": "Логотип",
+  "author": "LiquidHub.ru",
+  "type": "snippets",
+  "homepage": "https://github.com/insales-components/logo",
+  "props": {
+    "common": false,
+    "liquid": true
+  },
+  "dependencies": {}
+}
