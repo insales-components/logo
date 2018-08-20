@@ -1,0 +1,12 @@
+{% assign logo_path = "logotype.svg" | asset_url_if_exists %}
+{% assign logo_mod = logo_mod | default: 'is-default' %}
+
+<a href="/" class="logo">
+  {% if logo_path %}
+    <img src="{{ 'logotype.svg' | asset_url }}" alt="{{ account.title }}">
+  {% else %}
+    {{ account.title | editable }}
+  {% endif %}
+</a>
+{% assign logo_path = nil %}
+{% assign logo_mod = nil %}
