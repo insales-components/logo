@@ -1,12 +1,19 @@
-{% assign logo_path = "logotype.svg" | asset_url_if_exists %}
-{% assign logo_mod = logo_mod | default: 'is-default' %}
-
-<a href="/" class="logo">
-  {% if logo_path %}
+{%- assign logo_path = "logotype.svg" | asset_url_if_exists -%}
+{%- assign logo_mod = logo_mod | default: 'is-default' -%}
+{%- assign logo_tag = 'span' -%}
+{%- assign logo_attr = '' -%}
+{%- if template == 'index' -%}
+{%- assign logo_tag = 'a' -%}
+{%- capture logo_attr -%}href="/"{%- endcapture -%}
+{%- endif -%}
+<{{ logo_tag }} {{ logo_attr }} class="logo">
+  {%- if logo_path -%}
     <img src="{{ 'logotype.svg' | asset_url }}" alt="{{ account.title }}">
-  {% else %}
+  {%- else -%}
     {{ account.title | editable }}
-  {% endif %}
-</a>
-{% assign logo_path = nil %}
-{% assign logo_mod = nil %}
+  {%- endif -%}
+</{{ logo_tag }}>
+{%- assign logo_path = nil -%}
+{%- assign logo_mod = nil -%}
+{%- assign logo_tag = nil -%}
+{%- assign logo_attr = nil -%}
